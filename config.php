@@ -13,11 +13,10 @@ $secret = "your_secret"; //this can be anything you want
 //Specific to you the store owner
 $storeName = "Shop Name";
 $rootURL = "http://yourrooturl.com/directory"; //example https://mysite.org  or http://yourhomepage.com/store
-$yourEmail = "your@email.com";
+$yourEmail = "your@email.com";  //email notifications will be sent to this email when a new order is placed
 
 //pw to access the admin pages
 $adminPW = "honeybadgerbubblegum"; 
-$hashedPW = md5($adminPW);
 
 //connect to the database
 $conn = mysqli_connect("localhost", $dbuser, $dbpw, $db);

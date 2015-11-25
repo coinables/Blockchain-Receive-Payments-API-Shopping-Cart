@@ -12,6 +12,7 @@ if(isset($_POST['submit'])){
   if($_SESSION['lasttime'] > 3){
   die("Too many invalid logins");
   }
+  $hashedPW = md5($adminPW);
   $pw =  md5($_POST['pw']);
   if($pw === $hashedPW){
   $_SESSION['logged'] = 1;
