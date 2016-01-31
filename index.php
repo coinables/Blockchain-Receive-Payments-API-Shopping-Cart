@@ -74,7 +74,7 @@ while($outputsH=mysqli_fetch_assoc($resultH)){
    echo "<span class='itemName'>".$outputsH['name']."</span>";
    echo "<span class='itemCost'>$".$outputsH['price']."</span>";
    echo $outputsH['description']."</div>";   
-   echo "<div class='shopAdd'><form method='post'><input type='submit' value='&roplus; Add To Cart' name='".$outputsH['id']."'></form></div>";
+   echo "<div class='shopAdd'><form method='post'><input type='submit' value='Add To Cart' name='".$outputsH['id']."'></form></div>";
    echo "</div>";
    echo "<div class='shopCont'><hr></div>";
 }
