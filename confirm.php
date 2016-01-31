@@ -37,14 +37,14 @@ if(isset($_POST['confirm']))
 	$orderData = implode(" ",$_SESSION['tedi']);
 	$orderCost = round($btcOwed, 4);
 	$_SESSION['orderCost'] = $orderCost;
-	$email = mysqli_real_escape_string($conn, $_SESSION['email']);
-	$name = mysqli_real_escape_string($conn, $_SESSION['name']);
-	$address = mysqli_real_escape_string($conn, $_SESSION['address']);
-	$address2 = mysqli_real_escape_string($conn, $_SESSION['address2']);
-	$city = mysqli_real_escape_string($conn, $_SESSION['city']);
-	$state = mysqli_real_escape_string($conn, $_SESSION['state']);
-	$zip = mysqli_real_escape_string($conn, $_SESSION['zip']);
-	$country = mysqli_real_escape_string($conn, $_SESSION['country']);
+	$email = $_SESSION['email'];
+	$name = $_SESSION['name'];
+	$address = $_SESSION['address'];
+	$address2 = $_SESSION['address2'];
+	$city = $_SESSION['city'];
+	$state = $_SESSION['state'];
+	$zip = $_SESSION['zip'];
+	$country = $_SESSION['country'];
 	
 	//call blockchain info receive payments API
 	$callback_url = $rootURL."/callback.php?invoice=".$orderID."&secret=".$secret;
@@ -122,13 +122,13 @@ EOD;
   Ship To:
   <div class="confirmShip">
   <?php 
-  echo $_SESSION['name']."<br>";
-  echo $_SESSION['address']."<br>";
-  echo $_SESSION['address2']."<br>";
-  echo $_SESSION['city'];
-  echo ", ".$_SESSION['state'];
-  echo " ".$_SESSION['zip']."<br>";
-  echo $_SESSION['email']."<br>";
+  echo htmlspecialchars($_SESSION['name'])."<br>";
+  echo htmlspecialchars($_SESSION['address'])."<br>";
+  echo htmlspecialchars($_SESSION['address2'])."<br>";
+  echo htmlspecialchars($_SESSION['city']);
+  echo ", ".htmlspecialchars($_SESSION['state']);
+  echo " ".htmlspecialchars($_SESSION['zip'])."<br>";
+  echo htmlspecialchars($_SESSION['email'])."<br>";
   ?>
   <a href="checkout.php">EDIT</a>
   </div><br><br>

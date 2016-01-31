@@ -8,6 +8,12 @@ session_start();
 $cartItems = count($_SESSION['tedi']);
 $cart = $_SESSION['tedi'];
 
+
+function escapeInput ($input){
+$escaped = mysqli_real_escape_string($conn, $input);
+return $escaped;
+}
+
 //redirect if self navigating pages
 if($cartItems < 1)
    {
@@ -15,14 +21,15 @@ if($cartItems < 1)
    }
 
 if(isset($_POST['submit'])){
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['name'] = trim($_POST['name']);
-        $_SESSION['address'] = trim($_POST['address']);
-		$_SESSION['address2'] = trim($_POST['address2']);
-        $_SESSION['city'] = trim($_POST['city']);
-        $_SESSION['state'] = trim($_POST['state']);
-        $_SESSION['zip'] = trim($_POST['zip']);
-		$_SESSION['country'] = trim($_POST['country']);
+        $_SESSION['email'] = escapeInput($_POST['email']);
+        $_SESSION['name'] = escapeInput(trim($_POST['name']));
+        $_SESSION['address'] = escapeInput(trim($_POST['address']));
+		$_SESSION['address2'] = escapeInput(trim($_POST['address2']));
+        $_SESSION['city'] = escapeInput(trim($_POST['city']));
+        $_SESSION['state'] = escapeInput(trim($_POST['state']));
+        $_SESSION['zip'] = escapeInput(trim($_POST['zip']));
+		$_SESSION['country'] = escapeInput(trim($_POST['country']));
+		
 		if(empty($_SESSION['email']) || empty($_SESSION['name']) || empty($_SESSION['address']) || empty($_SESSION['city']) || empty($_SESSION['zip'])){
 		$message = "<span class='errMsg'>Form is incomplete!</span>";
 		} else {
