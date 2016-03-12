@@ -11,8 +11,8 @@ Since these addresses are deterministic no payment forwarding is needed like the
 All you need is a API key and an extended public key (BIP 32)
 
 1. Download the files in the repository
-2. Create and configure a database on your webserver
-3. Import the included SQL database files using PHPmyadmin or similar database manager
+2. Create and configure a database on your webserver (How to: http://www.fastcomet.com/tutorials/cpanel/create-database)
+3. Import the included SQL database files using PHPmyadmin or similar database manager (How to: https://www.namecheap.com/support/knowledgebase/article.aspx/9143/29/how-to-import-and-export-database-in-cpanel-access-denied-create-database-dbname-error-and-how-to-fix-it
 4. Open the config.php file and update the fields
 
 That's it!
