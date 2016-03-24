@@ -8,12 +8,6 @@ session_start();
 $cartItems = count($_SESSION['tedi']);
 $cart = $_SESSION['tedi'];
 
-
-function escapeInput ($input){
-$escaped = mysqli_real_escape_string($conn, $input);
-return $escaped;
-}
-
 //redirect if self navigating pages
 if($cartItems < 1)
    {
@@ -21,14 +15,21 @@ if($cartItems < 1)
    }
 
 if(isset($_POST['submit'])){
-        $_SESSION['email'] = escapeInput($_POST['email']);
-        $_SESSION['name'] = escapeInput(trim($_POST['name']));
-        $_SESSION['address'] = escapeInput(trim($_POST['address']));
-		$_SESSION['address2'] = escapeInput(trim($_POST['address2']));
-        $_SESSION['city'] = escapeInput(trim($_POST['city']));
-        $_SESSION['state'] = escapeInput(trim($_POST['state']));
-        $_SESSION['zip'] = escapeInput(trim($_POST['zip']));
-		$_SESSION['country'] = escapeInput(trim($_POST['country']));
+        $_SESSION['email'] = mysqli_real_escape_string($conn, $_POST['email']);
+        $_SESSION['name'] = trim($_POST['name']);
+        $_SESSION['address'] = trim($_POST['address']);
+		$_SESSION['address2'] = trim($_POST['address2']);
+        $_SESSION['city'] = trim($_POST['city']);
+        $_SESSION['state'] = trim($_POST['state']);
+        $_SESSION['zip'] = trim($_POST['zip']);
+		$_SESSION['country'] = trim($_POST['country']);
+		$_SESSION['name'] = mysqli_real_escape_string($conn, $_SESSION['name']);
+		$_SESSION['address'] = mysqli_real_escape_string($conn, $_SESSION['address']);
+		$_SESSION['address2'] = mysqli_real_escape_string($conn, $_SESSION['address2']);
+        $_SESSION['city'] = mysqli_real_escape_string($conn, $_SESSION['city']);
+        $_SESSION['state'] = mysqli_real_escape_string($conn, $_SESSION['state']);
+        $_SESSION['zip'] = mysqli_real_escape_string($conn, $_SESSION['zip']);
+		$_SESSION['country'] = mysqli_real_escape_string($conn, $_SESSION['country']);
 		
 		if(empty($_SESSION['email']) || empty($_SESSION['name']) || empty($_SESSION['address']) || empty($_SESSION['city']) || empty($_SESSION['zip'])){
 		$message = "<span class='errMsg'>Form is incomplete!</span>";
