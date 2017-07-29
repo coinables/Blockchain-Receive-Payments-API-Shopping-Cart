@@ -10,10 +10,25 @@ $_SESSION['tedi'] = array();
 }
 //get current exchange rate
 if(!isset($_SESSION['exr'])){
-$url = "https://coinbase.com/api/v1/prices/spot_rate";
+$url = "https://www.bitstamp.net/api/v2/ticker/BTCUSD";
 $json = json_decode(file_get_contents($url), true);
-$price = $json["amount"];
-$_SESSION['exr'] = $price;
+    if(array_key_exists("last",$json)){
+        $price = $json["last"];
+        $_SESSION['exr'] = $price;
+    }
+    else
+    {
+        //likely an error try another source
+        $url = "https://blockchain.info/stats?format=json";
+        $json = json_decode(file_get_contents($url), true);
+            if(array_key_exists("market_price_usd",$json)){
+                 $price = $json["market_price_usd"];
+                 $_SESSION['exr'] = $price;
+            } else {
+                //both sources unsuccesful 
+                die("Oops please try refreshing or try again later");
+            }
+    }
 }
 
 //count items in array
