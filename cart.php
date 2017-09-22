@@ -54,7 +54,7 @@ if(isset($_POST['checkout'])){
 	$usdOwed += $loopPrice;
 	$btcOwed = $usdOwed;
 	echo "<tr><td width='80%'>".$loopName."</td>";
-	echo "<td width='20%'>$".$loopPrice."</td>";
+	echo "<td width='20%'>&#x0E3F;".$loopPrice."</td>";
 	echo "</tr>";
 	}
 	echo "<tr>";
