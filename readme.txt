@@ -1,3 +1,7 @@
+THIS PROJECT HAS BEEN ABANDONDED AND IS NO LONGER UPDATED. PLEASE REFER TO THE REPOSITORY THAT DOES NOT REQUIRED AN API KEY OR RELY ON BLOCKCHAIN.INFO, OR A NODE -> https://github.com/coinables/NoNodePay
+
+
+
 ######################################
 # Blockchain Receive Payments API v2 #
 #     Open Shopping Cart             #
